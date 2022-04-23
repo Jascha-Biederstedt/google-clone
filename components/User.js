@@ -21,7 +21,7 @@ const User = () => {
       <>
         <button
           onClick={signIn}
-          className="bg-blue-500 text-white px-6 py-2 font-medium rounded-md hover:brightness-105"
+          className="bg-blue-500 text-white px-6 py-2 font-medium rounded-md hover:brightness-105 whitespace-nowrap"
         >
           Sign in
         </button>
