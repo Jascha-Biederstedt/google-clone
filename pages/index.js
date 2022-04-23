@@ -33,7 +33,9 @@ export default function Home() {
         </form>
       </main>
 
-      <footer></footer>
+      <footer className="absolute bottom-5 w-[100%] text-center text-gray-700 text-sm">
+        <p>Copyright &copy; {new Date().getFullYear()}</p>
+      </footer>
     </div>
   );
 }
