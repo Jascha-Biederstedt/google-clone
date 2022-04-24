@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { MicrophoneIcon, SearchIcon, XIcon } from '@heroicons/react/solid';
 
 import User from './User';
+import SearchHeaderOptions from './SearchHeaderOptions';
 
 const SearchHeader = () => {
   const router = useRouter();
@@ -17,7 +18,7 @@ const SearchHeader = () => {
     if (!term) {
       return;
     } else {
-      router.push(`/search?term=${term}`);
+      router.push(`/search?term=${term}&searchType=`);
     }
   };
 
@@ -55,6 +56,8 @@ const SearchHeader = () => {
 
         <User />
       </div>
+
+      <SearchHeaderOptions />
     </header>
   );
 };

@@ -17,7 +17,7 @@ export default function Home() {
     if (!term) {
       return;
     } else {
-      router.push(`/search?term=${term}`);
+      router.push(`/search?term=${term}&searchType=`);
     }
   };
 
