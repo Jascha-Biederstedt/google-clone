@@ -1,7 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import SearchHeader from '../components/SearchHeader';
+import SearchResults from '../components/SearchResults';
 import dummyData from '../data/dummyData';
 
 export const getServerSideProps = async context => {
@@ -23,13 +25,17 @@ export const getServerSideProps = async context => {
 };
 
 const search = ({ searchResults }) => {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
-        <title>Search Page</title>
+        <title>{router.query.term} search</title>
       </Head>
 
       <SearchHeader />
+
+      <SearchResults results={searchResults} />
     </div>
   );
 };
