@@ -26,7 +26,7 @@ export const getServerSideProps = async context => {
   };
 };
 
-const search = ({ searchResults }) => {
+const Search = ({ searchResults }) => {
   const router = useRouter();
 
   return (
@@ -46,4 +46,4 @@ const search = ({ searchResults }) => {
   );
 };
 
-export default search;
+export default Search;
