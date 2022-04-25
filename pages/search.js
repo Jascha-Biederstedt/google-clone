@@ -3,12 +3,13 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import SearchHeader from '../components/SearchHeader';
+import ImageResults from '../components/ImageResults';
 import SearchResults from '../components/SearchResults';
 import dummyData from '../data/dummyData';
 
 export const getServerSideProps = async context => {
   const startIndex = context.query.start || '1';
-  const isDev = true;
+  const isDev = false;
   const searchResults = isDev
     ? dummyData
     : await fetch(`https://www.googleapis.com/customsearch/v1?key=${
@@ -31,12 +32,16 @@ const search = ({ searchResults }) => {
   return (
     <div>
       <Head>
-        <title>{router.query.term} search</title>
+        <title>{router.query.term} - search</title>
       </Head>
 
       <SearchHeader />
 
-      <SearchResults results={searchResults} />
+      {router.query.searchType === 'image' ? (
+        <ImageResults results={searchResults} />
+      ) : (
+        <SearchResults results={searchResults} />
+      )}
     </div>
   );
 };
