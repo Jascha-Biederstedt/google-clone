@@ -1,6 +1,8 @@
 import React from 'react';
 import parse from 'html-react-parser';
 
+import Pagination from './Pagination';
+
 const SearchResults = ({ results }) => {
   return (
     <div className="w-full mx-auto px-3 sm:pl-[5%] md:pl-[14%] lg:pl-52">
@@ -27,6 +29,8 @@ const SearchResults = ({ results }) => {
           <p className="text-gray-600">{parse(result.htmlSnippet)}</p>
         </div>
       ))}
+
+      <Pagination />
     </div>
   );
 };

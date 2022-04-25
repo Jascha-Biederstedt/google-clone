@@ -7,6 +7,7 @@ import SearchResults from '../components/SearchResults';
 import dummyData from '../data/dummyData';
 
 export const getServerSideProps = async context => {
+  const startIndex = context.query.start || '1';
   const isDev = true;
   const searchResults = isDev
     ? dummyData
@@ -14,7 +15,7 @@ export const getServerSideProps = async context => {
         process.env.GOOGLE_API_KEY
       }&cx=${process.env.GOOGLE_CONTEXT_KEY}&q=${context.query.term}${
         context.query.searchType && '&searchType=image'
-      }
+      }&start=${startIndex}
   `).then(res => res.json());
 
   return {
